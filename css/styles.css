@@ -66,6 +66,9 @@ ul, ol {
 .input-block {
     position: sticky;
     bottom: 0;
+    width: 90%;
+    margin: auto;
+}
 }
 
 .form-control {
