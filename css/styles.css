@@ -1,0 +1,150 @@
+body {
+    height: 100%;
+    margin: 0px;
+    font-family: 'Alata', sans-serif;
+    font-family: 'Lato', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #F4C7B8;
+    
+}
+
+ul, ol {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+
+
+
+.navigation-block{
+    background-color: #E16036;
+    color: white;
+    margin-bottom: 80px;
+    position: sticky;
+    top: 0;
+}
+
+
+
+.logo-block {
+    display: flex;
+    align-content: stretch;
+    justify-content: space-around;
+    
+}
+
+.content-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 90%;
+    margin: auto
+}
+
+.empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.task-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+.inprocesslist-block {
+    display: flex;
+    align-content: stretch;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.input-block {
+    position: sticky;
+    bottom: 0;
+}
+
+.form-control {
+    background-color: #F8D9CF;
+    border: none;
+    margin: 5px;
+    padding: 5px;
+    
+}
+
+.input-form {
+    border: 1px solid #7E846B;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    position: sticky;
+    bottom: 0;
+    background-color: #F4C7B8;
+}
+
+.inputs-items{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.checkbox {
+    transform: scale(2);
+    accent-color: #E16036 ;
+}
+
+input:checked {
+    box-shadow: 0 0 0 1px #7E846B;
+}
+
+input[type="checkbox" i] {
+    background-color: none;
+    cursor: default;
+}
+
+.done {
+    text-decoration: line-through;
+}
+
+.button {
+    margin-left: 80px;
+    border: 0.2em solid #E16036;
+    background-color: #7E846B;
+    color: white;
+    border-radius: 1rem;
+    padding: 10px 20px;
+}
+
+.delete-button {
+    background-color: #F4C7B8;
+    box-shadow: 0 10px 10px rgb(0 0 0 / 20%);
+    border-radius: 50%;
+    text-align: center;
+    height: 60px;
+    width: 60px;
+    display: block;
+    border-color: #E16036;
+    transition: 2ms;
+}
+
+.delete-button:hover {
+    background-color: #F8D9CF;
+    height: 70px;
+    width: 70px;
+}
+
+.hide {
+    display: none;
+}
