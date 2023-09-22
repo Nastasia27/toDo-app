@@ -17,20 +17,22 @@ form.addEventListener('submit', function(e){
     const taskItem = document.createElement('div')
     taskItem.innerHTML = `
       <div class="inprocesslist-block">
+        <div class="radio-button">
+          <input type="radio">
+        </div>
         <ul class="task-list">
           <li> <h3>${taskTitle} </h3> </li>
           <ul>
             <li>${taskText}</li>
           </ul>
          </ul>
-         <div id='button-block'>
+          <button class="delete-button" type="button">
+          <img src='image/imagetrash.png' height='30px'>
+         </button>
+         <div>
       
          </div>
       </div>`
-
-//<button class="delete-button" type="button">
-          //<img src='image/imagetrash.png' height='30px'>
-        // </button>
 
     contentBlock.append(taskItem)
     
@@ -42,36 +44,17 @@ form.addEventListener('submit', function(e){
     if (contentBlock.children.length > 1) {
       emptyBlock.classList.add('hide');
     }
-//
-const deleteButton = document.createElement("button"); 
-deleteButton.classList.add('delete-button');
-const buttonBlock = document.querySelector('#button-block');
 
-const imgOfBusket = document.createElement('img');
-imgOfBusket.src = 'image/imagetrash.png';
-imgOfBusket.height = 30;
+    const deleteButton = document.querySelector('.delete-button')
 
-taskItem.appendChild(deleteButton);
-taskItem.classList.add('task-item');
-deleteButton.appendChild(imgOfBusket);
-
-deleteButton.addEventListener('click', function(){ 
-  taskItem.remove(); 
-  })
-
-const radioButton = document.createElement('input');
-radioButton.type = 'checkbox';
-radioButton.classList.add('checkbox')
-taskItem.prepend(radioButton);
-radioButton.addEventListener('click', function(){
-  taskItem.classList.toggle('done');
-})
+    deleteButton.addEventListener('click', function(){
+       console.log('DEL') ;
+       const removeItem = document.querySelector('.task-block')
+       removeItem.remove();
+    })
 
  
 
 })  
 
-if (contentBlock.children.length < 2) {
-  emptyBlock.classList.remove('hide');
-}
 
