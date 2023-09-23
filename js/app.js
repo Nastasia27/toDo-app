@@ -54,39 +54,24 @@ function taskItem(taskTitle, taskText, id) {
     })
 }
 
-
 function removeItem(id) {
-  console.log(id);
   const index = todoList.findIndex(task => task.id == id);
-  console.log(index)
   todoList.splice(index,1);
-  console.log(todoList);
   localStorage.setItem('todoList', JSON.stringify(todoList));
   }
-
 
 function statusDone(id, status) {
-  console.log(id)
- 
   const index = todoList.findIndex(task => task.id == id);
-  console.log(index)
   todoList[index].status = status;
-
-  console.log(todoList);
   localStorage.setItem('todoList', JSON.stringify(todoList));
   }
 
-
-
 const storedTodoList = JSON.parse(localStorage.getItem('todoList'));
-console.log(storedTodoList);
 
 if (storedTodoList.length > 0) {
   todoList = storedTodoList;
-  console.log(todoList);
   todoList.map((element, index) => {
     taskItem(element.title,element.text, element.id, element.status);
-    console.log(todoList[index])
     if (todoList[index].status === 'done') {
       const taskItem = document.getElementById(todoList[index].id);
         if (taskItem) {
@@ -100,21 +85,17 @@ if (storedTodoList.length > 0) {
   });
 }
 
-
 if (contentBlock.children.length > 1) {
   emptyBlock.classList.add('hide');
 }
-
 
 form.addEventListener('submit', function(e){
     e.preventDefault();
     const taskTitle = title.value;
     const taskText = text.value;
     const idByDate = Date.now();
-    console.log(idByDate);
     taskItem(taskTitle, taskText, idByDate);
     todoList.push({title:taskTitle, text:taskText, id:idByDate, status:'none'})
-    console.log(todoList);
     localStorage.setItem('todoList', JSON.stringify(todoList));
 
     if (contentBlock.children.length > 1) {
