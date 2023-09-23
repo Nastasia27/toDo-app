@@ -57,7 +57,6 @@ function taskItem(taskTitle, taskText, id) {
 function removeItem(id) {
   const index = todoList.findIndex(task => task.id == id);
   todoList.splice(index,1);
-  console.log(index);
   localStorage.setItem('todoList', JSON.stringify(todoList));
   }
 
