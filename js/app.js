@@ -39,7 +39,7 @@ function taskItem(taskTitle, taskText, id) {
 
     deleteButton.addEventListener('click', function(){ 
       taskItem.remove();
-      removeItem();
+      removeItem(taskItem.id);
       })
 
     const radioButton = document.createElement('input');
@@ -57,6 +57,7 @@ function taskItem(taskTitle, taskText, id) {
 function removeItem(id) {
   const index = todoList.findIndex(task => task.id == id);
   todoList.splice(index,1);
+  console.log(index);
   localStorage.setItem('todoList', JSON.stringify(todoList));
   }
 
