@@ -37,9 +37,9 @@ function taskItem(taskTitle, taskText, id) {
     taskItem.classList.add('task-item');
     deleteButton.appendChild(imgOfBusket);
 
-    deleteButton.addEventListener('click', function(id){ 
+    deleteButton.addEventListener('click', function(){ 
       taskItem.remove();
-      removeItem(id);
+      removeItem();
       })
 
     const radioButton = document.createElement('input');
@@ -48,16 +48,35 @@ function taskItem(taskTitle, taskText, id) {
     taskItem.prepend(radioButton);
     radioButton.addEventListener('click', function(){
       taskItem.classList.toggle('done');
+      if (taskItem.classList.value.includes('done')) {
+        statusDone(taskItem.id, "done");
+      } else { statusDone(taskItem.id, "none")}
     })
 }
 
+
 function removeItem(id) {
-  const index = todoList.findIndex(task => task.id === id);
+  console.log(id);
+  const index = todoList.findIndex(task => task.id == id);
   console.log(index)
   todoList.splice(index,1);
   console.log(todoList);
   localStorage.setItem('todoList', JSON.stringify(todoList));
-}
+  }
+
+
+function statusDone(id, status) {
+  console.log(id)
+ 
+  const index = todoList.findIndex(task => task.id == id);
+  console.log(index)
+  todoList[index].status = status;
+
+  console.log(todoList);
+  localStorage.setItem('todoList', JSON.stringify(todoList));
+  }
+
+
 
 const storedTodoList = JSON.parse(localStorage.getItem('todoList'));
 console.log(storedTodoList);
@@ -65,8 +84,19 @@ console.log(storedTodoList);
 if (storedTodoList.length > 0) {
   todoList = storedTodoList;
   console.log(todoList);
-  todoList.map((element) => {
-    taskItem(element.title,element.text, element.id);
+  todoList.map((element, index) => {
+    taskItem(element.title,element.text, element.id, element.status);
+    console.log(todoList[index])
+    if (todoList[index].status === 'done') {
+      const taskItem = document.getElementById(todoList[index].id);
+        if (taskItem) {
+            taskItem.classList.toggle('done');
+        }
+      const checkbox = taskItem.querySelector('.checkbox');
+        if (checkbox) {
+            checkbox.checked = true;
+        }
+    }
   });
 }
 
@@ -80,11 +110,16 @@ form.addEventListener('submit', function(e){
     e.preventDefault();
     const taskTitle = title.value;
     const taskText = text.value;
-    const id = Date.now();
-    taskItem(taskTitle, taskText);
-    todoList.push({title:taskTitle, text:taskText, id:id})
+    const idByDate = Date.now();
+    console.log(idByDate);
+    taskItem(taskTitle, taskText, idByDate);
+    todoList.push({title:taskTitle, text:taskText, id:idByDate, status:'none'})
     console.log(todoList);
     localStorage.setItem('todoList', JSON.stringify(todoList));
+
+    if (contentBlock.children.length > 1) {
+      emptyBlock.classList.add('hide');
+    }
 })  
 
 
