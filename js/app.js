@@ -68,7 +68,7 @@ function statusDone(id, status) {
 
 const storedTodoList = JSON.parse(localStorage.getItem('todoList'));
 
-if (storedTodoList.length > 0) {
+if (storedTodoList && storedTodoList.length > 0) {
   todoList = storedTodoList;
   todoList.map((element, index) => {
     taskItem(element.title,element.text, element.id, element.status);
