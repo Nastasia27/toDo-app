@@ -39,7 +39,7 @@ function taskItem(taskTitle, taskText, id) {
 
     deleteButton.addEventListener('click', function(){ 
       taskItem.remove();
-      removeItem();
+      removeItem(taskItem.id);
       })
 
     const radioButton = document.createElement('input');
