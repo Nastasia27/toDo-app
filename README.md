@@ -7,10 +7,6 @@ It will be useful for anyone who often forgets about their plans for the day/wee
 
 # Technologies Used:
 Front End fully developed using HTML, CSS and JS
-
-#### Libraries and frameworks:
-Redux
-
 Local Storage for storing task data
 
 ## Hosting
